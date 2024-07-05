@@ -26,6 +26,17 @@ services:
     networks:
       - cer2_network
 
+  react:
+    container_name: cer2_react
+    build: 
+      context: \Users\jorge\cer2-ldp
+      dockerfile: Dockerfile
+    command: npm start
+    volumes:
+      - ./react/:/app/
+    ports:
+    - "4400:3000"
+
 networks:
-  cer2_network:
-    driver: bridge
+  default:
+    name: cer2

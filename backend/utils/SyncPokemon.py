@@ -1,5 +1,6 @@
 import requests
 
+
 import os, sys    
 
 current_path = os.path.abspath(os.path.dirname(__file__))
@@ -46,15 +47,17 @@ for pokemon in pokemons:
     if len(poke_data['types']) > 1:
         secondary_type = poke_data['types'][1]['type']['name']
     # print(name, pokedex_number, primary_type, secondary_type)
-    
-    image_url = poke_data['sprites']['front_default']
+
+    # print(poke_data['sprites']['front_default'])
 
     poke_db, _ = Pokemon.objects.get_or_create(
         name = name,
         pokedex_number = pokedex_number,
         primary_type = primary_type,
-        secondary_type = secondary_type,
-        image_url=image_url
+        secondary_type = secondary_type
     )
+
+    poke_db.image_url = poke_data['sprites']['front_default']
+    poke_db.save()
 
     print(poke_db)

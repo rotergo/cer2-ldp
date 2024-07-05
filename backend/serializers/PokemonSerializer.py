@@ -6,6 +6,7 @@ class PokemonSerializer(serializers.ModelSerializer):
     pokedex_number = serializers.IntegerField(required=False)
     primary_type = serializers.CharField(max_length=100, required=False)
     secondary_type = serializers.CharField(max_length=100, required=False)
+    image_url = serializers.CharField(max_length=1000, required=False)
 
     class Meta:
         model = Pokemon
