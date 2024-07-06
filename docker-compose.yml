@@ -29,13 +29,12 @@ services:
   react:
     container_name: cer2_react
     build: 
-      context: \Users\jorge\cer2-ldp
       dockerfile: Dockerfile
     command: npm start
     volumes:
       - ./react/:/app/
     ports:
-    - "4400:3000"
+    - "8000:8000"
 
 networks:
   default:
